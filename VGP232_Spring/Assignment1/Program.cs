@@ -7,6 +7,10 @@ using System.IO;
 // NAME: Shuxuan Cai
 // STUDENT NUMBER: 2032525
 
+//Grade: 94/100
+//Comment: To see where are your mistakes, search for ERROR:
+//To find comments search for ERICK'S COMMENT
+
 namespace Assignment1
 {
     class MainClass
@@ -87,6 +91,8 @@ namespace Assignment1
                 else if (args[i] == "-s" || args[i] == "--sort")
                 {
                     // TODO: set the sortEnabled flag and see if the next argument is set for the column name
+
+                    //ERROR 1: Move the sortEnabled inside the if statement. Just sort if you have the argument to sort.
                     sortEnabled = true;
                     if(args.Length > i + 1)
                     {
@@ -119,6 +125,9 @@ namespace Assignment1
                         }
                         else
                         {
+                            //ERROR: -1. You create a string filePath receiving args[i]. Use it here.
+                            //outputFile = filePath
+
                             // TODO: set the output file to the outputFile
                             outputFile = args[i];
                         }
@@ -136,6 +145,11 @@ namespace Assignment1
 
                 // print: Sorting by <column name> e.g. BaseAttack
                 Console.WriteLine($"Sorting by {sortColumnName}.");
+
+                //ERROR: -2. Instead of verify all formats of sortColumnName, you can transform sortColumnName to all lower case, by doing:
+                //sortColumnName.ToLower(), and then you can just compare against the lower case version of each word.
+                //Another comment, for more than 3 comparisons, use switch case.
+
                 // Sorts the list based off of the Weapon name.
                 if(sortColumnName == "Name" || sortColumnName == "name" || sortColumnName == "NAME")
                 {
@@ -191,6 +205,8 @@ namespace Assignment1
                         // TODO: write the header of the output "Name,Type,Rarity,BaseAttack"
                         writer.WriteLine("Name,Type,Rarity,BaseAttack");
 
+                        //ERICK's COMMENT: Use a word instead of i in a foreach loop.
+
                         // TODO: use the writer to output the results.
                         foreach(var i in results)
                         {
@@ -234,6 +250,36 @@ namespace Assignment1
 
             using (StreamReader reader = new StreamReader(fileName))
             {
+                //ERROR: -2. You are using Parse outside a try catch block. This can crash your application.
+
+                //int lineNumber = 0;
+                //while (reader.Peek() > 0)
+                //{
+                //    string line = reader.ReadLine();
+                //    // string[] values = line.Split(',');
+                //    string[] values = line.Split(',');
+                //    Weapon weapon = new Weapon();
+
+                //    // NOTE using int.TryParse is ok too then they don't need the exception.
+                //    try
+                //    {
+                //        if (values.Length == 4)
+                //        {
+                //            weapon.Name = values[0];
+                //            weapon.Type = values[1];
+                //            weapon.Rarity = int.Parse(values[2]);
+                //            weapon.BaseAttack = int.Parse(values[3]);
+                //            output.Add(weapon);
+                //        }
+                //        lineNumber++;
+                //    }
+                //    catch (Exception)
+                //    {
+                //        Console.WriteLine("Unable to parse line {0}", lineNumber);
+                //    }
+                //}
+
+
                 // Skip the first line because header does not need to be parsed.
                 // Name,Type,Rarity,BaseAttack
 
