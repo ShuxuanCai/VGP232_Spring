@@ -91,11 +91,15 @@ namespace Assignment1
                 else if (args[i] == "-s" || args[i] == "--sort")
                 {
                     // TODO: set the sortEnabled flag and see if the next argument is set for the column name
+<<<<<<< HEAD
+=======
 
                     //ERROR 1: Move the sortEnabled inside the if statement. Just sort if you have the argument to sort.
                     sortEnabled = true;
+>>>>>>> 7790e1c596c1ee1e6cdcc7d19bee5eb96d74cce9
                     if(args.Length > i + 1)
                     {
+                        sortEnabled = true;
                         ++i;
                         sortColumnName = args[i];
                     }
@@ -129,7 +133,7 @@ namespace Assignment1
                             //outputFile = filePath
 
                             // TODO: set the output file to the outputFile
-                            outputFile = args[i];
+                            outputFile = filePath;
                         }
                     }
                 }
@@ -151,29 +155,23 @@ namespace Assignment1
                 //Another comment, for more than 3 comparisons, use switch case.
 
                 // Sorts the list based off of the Weapon name.
-                if(sortColumnName == "Name" || sortColumnName == "name" || sortColumnName == "NAME")
-                {
-                    results.Sort(Weapon.CompareByName);
-                }
-
-                else if (sortColumnName == "Type" || sortColumnName == "type" || sortColumnName == "TYPE")
-                {
-                    results.Sort(Weapon.CompareByType);
-                }
-
-                else if (sortColumnName == "Rarity" || sortColumnName == "rarity" || sortColumnName == "RARITY")
-                {
-                    results.Sort(Weapon.CompareByRarity);
-                }
-
-                else if (sortColumnName == "BaseAttack" || sortColumnName == "baseAttack" || sortColumnName == "baseattack" || sortColumnName == "BASEATTACK")
-                {
-                    results.Sort(Weapon.CompareByBaseAttack);
-                }
-
-                else
-                {
-                    Console.WriteLine("Wrong column name!");
+                switch (sortColumnName.ToLower())
+                { 
+                    case "name":
+                        results.Sort(Weapon.CompareByName);
+                        break;
+                    case "type":
+                        results.Sort(Weapon.CompareByType);
+                        break;
+                    case "rarity":
+                        results.Sort(Weapon.CompareByRarity);
+                        break;
+                    case "baseattack":
+                        results.Sort(Weapon.CompareByBaseAttack);
+                        break;
+                    default:
+                        Console.WriteLine("Wrong column name!");
+                        break;
                 }
             }
 
@@ -208,9 +206,10 @@ namespace Assignment1
                         //ERICK's COMMENT: Use a word instead of i in a foreach loop.
 
                         // TODO: use the writer to output the results.
-                        foreach(var i in results)
+                        
+                        foreach(var j in results)
                         {
-                            writer.WriteLine(i);
+                            writer.WriteLine(j);
                         }
 
                         // TODO: print out the file has been saved.
@@ -284,6 +283,7 @@ namespace Assignment1
                 // Name,Type,Rarity,BaseAttack
 
                 string header = reader.ReadLine();
+                int lineNumber = 0;
 
                 // The rest of the lines looks like the following:
                 // Skyward Blade,Sword,5,46
@@ -302,16 +302,19 @@ namespace Assignment1
                             // Populate the properties of the Weapon
                             weapon.Name = values[0];
                             weapon.Type = values[1];
-                            weapon.Rarity = int.Parse(values[2]);
-                            weapon.BaseAttack = int.Parse(values[3]);
+                            int.TryParse(values[2], out int rarity);
+                            weapon.Rarity = rarity;
+                            int.TryParse(values[3], out int baseAttack);
+                            weapon.BaseAttack = baseAttack;
                             // TODO: Add the Weapon to the list
                             output.Add(weapon);
                         }
+                        lineNumber++;
                     }
    
-                    catch (Exception e)
+                    catch (Exception)
                     {
-                        Console.WriteLine(e.Message);
+                        Console.WriteLine("Unable to parse line {0}", lineNumber);
                     }
                 }
             }
