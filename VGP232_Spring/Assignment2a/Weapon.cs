@@ -32,32 +32,29 @@ namespace Assignment2a
             string[] values = rawData.Split(',');
             weapon = new Weapon();
 
-            if (values.Length == 7)
+            try
             {
-                try
+                if (values.Length == 7)
                 {
                     weapon.Name = values[0];
-                    Enum.TryParse(values[1], out WeaponType type);
-                    weapon.Type = type;
+                    weapon.Type = Enum.Parse<WeaponType>(values[1]);
                     weapon.Image = values[2];
-                    int.TryParse(values[3], out int rarity);
-                    weapon.Rarity = rarity;
-                    int.TryParse(values[4], out int baseAttack);
-                    weapon.BaseAttack = baseAttack;
+                    weapon.Rarity = int.Parse(values[3]);
+                    weapon.BaseAttack = int.Parse(values[4]);
                     weapon.SecondaryStat = values[5];
                     weapon.Passive = values[6];
 
                     return true;
                 }
-                catch (Exception ex)
+                else
                 {
-                    Console.WriteLine(ex.Message);
-                    return false;
+                    throw new Exception ("Wrong number properties of data!");
                 }
             }
-            else
+            catch (Exception ex)
             {
-                throw new Exception("Wrong number properties of data!");
+                Console.WriteLine(ex.Message);
+                return false;
             }
         }
 

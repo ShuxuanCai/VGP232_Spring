@@ -163,7 +163,7 @@ namespace Assignment2a
 
             string line = "1,Bulbasaur,A,B,C,65,65";
             Weapon actual = null;
-            Weapon.TryParse(line, out actual);
-        }
+            Assert.IsFalse(Weapon.TryParse(line, out actual));
+        }             
     }
 }

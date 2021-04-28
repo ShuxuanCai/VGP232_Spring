@@ -153,35 +153,6 @@ namespace Assignment2a
                 if (!string.IsNullOrEmpty(outputFile))
                 {
                     results.Save(outputFile);
-                    //FileStream fs;
-
-                    //// Check if the append flag is set, and if so, then open the file in append mode; otherwise, create the file to write.
-                    //if (appendToFile && File.Exists((outputFile)))
-                    //{
-                    //    fs = File.Open(outputFile, FileMode.Append);
-                    //}
-                    //else
-                    //{
-                    //    fs = File.Open(outputFile, FileMode.Create);
-                    //}
-
-                    //// opens a stream writer with the file handle to write to the output file.
-                    //using (StreamWriter writer = new StreamWriter(fs))
-                    //{
-                    //    // Hint: use writer.WriteLine
-                    //    // TODO: write the header of the output "Name,Type,Rarity,BaseAttack"
-                    //    writer.WriteLine("Name,Type,Rarity,BaseAttack");
-
-                    //    // TODO: use the writer to output the results.
-
-                    //    foreach (var j in results)
-                    //    {
-                    //        writer.WriteLine(j);
-                    //    }
-
-                    //    // TODO: print out the file has been saved.
-                    //    Console.WriteLine("The file has been saved.");
-                    //}
                 }
                 else
                 {

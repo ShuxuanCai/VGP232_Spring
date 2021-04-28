@@ -91,12 +91,12 @@ namespace Assignment1
                 else if (args[i] == "-s" || args[i] == "--sort")
                 {
                     // TODO: set the sortEnabled flag and see if the next argument is set for the column name
-<<<<<<< HEAD
-=======
+//<<<<<<< HEAD
+//=======
 
                     //ERROR 1: Move the sortEnabled inside the if statement. Just sort if you have the argument to sort.
                     sortEnabled = true;
->>>>>>> 7790e1c596c1ee1e6cdcc7d19bee5eb96d74cce9
+//>>>>>>> 7790e1c596c1ee1e6cdcc7d19bee5eb96d74cce9
                     if(args.Length > i + 1)
                     {
                         sortEnabled = true;
