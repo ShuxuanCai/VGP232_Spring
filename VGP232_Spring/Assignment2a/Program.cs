@@ -7,6 +7,8 @@ using System.IO;
 // NAME: Shuxuan Cai
 // STUDENT NUMBER: 2032525
 
+//Grade: 92/10
+
 namespace Assignment2a
 {
     class MainClass
@@ -58,6 +60,33 @@ namespace Assignment2a
 
                     break;
                 }
+                //ERROR: -2. Missing some safety checks.
+                //else if (args[i] == "-i" || args[i] == "--input")
+                //{
+                //    // Check to make sure there's a second argument for the file name.
+                //    if (args.Length > i + 1)
+                //    {
+                //        // stores the file name in the next argument to inputFile
+                //        ++i;
+                //        inputFile = args[i];
+
+                //        if (string.IsNullOrEmpty(inputFile))
+                //        {
+                //            // Print no input file specified.
+                //            Console.WriteLine("No input file specified");
+                //        }
+                //        else if (!File.Exists(inputFile))
+                //        {
+                //            // Print the file specified does not exist.
+                //            Console.WriteLine("The specified file {0} does not exit.", inputFile);
+                //        }
+                //        else
+                //        {
+                //            // This function returns a List<Weapon> once the data is parsed.
+                //            results.Load(inputFile);
+                //        }
+                //    }
+                //}
                 else if (args[i] == "-i" || args[i] == "--input")
                 {
                     // Check to make sure there's a second argument for the file name.
@@ -116,6 +145,8 @@ namespace Assignment2a
                 }
             }
 
+            //ERROR: -3. Why are you not using the SortBy method that you created for weaponCollection?
+            //replace all of this by: results.SortBy(columnName)
             if (sortEnabled)
             {
                 // TODO: add implementation to determine the column name to trigger a different sort. (Hint: column names are the 4 properties of the weapon class)
@@ -148,6 +179,10 @@ namespace Assignment2a
                 Console.WriteLine("There are {0} entries", results.Count);
             }
 
+            //ERROR -1. Missing a check before save
+            //if(appendToFile){
+            //  results.Save(outputFile)
+            //}
             if (results.Count > 0)
             {
                 if (!string.IsNullOrEmpty(outputFile))

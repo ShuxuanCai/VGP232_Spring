@@ -92,6 +92,7 @@ namespace Assignment2a
             }
         }
 
+        //ERROR: -2. You are always adding in your load. You should first clear your list and then add.
         public bool Load(string filename)
         {
             if (string.IsNullOrEmpty(filename))
