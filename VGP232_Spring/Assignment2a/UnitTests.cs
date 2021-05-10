@@ -87,7 +87,6 @@ namespace Assignment2a
         {
             // TODO: load returns true, expect WeaponCollection with count of 95 .
 
-            weaponCollection.Clear();
             Assert.IsTrue(weaponCollection.Load(inputPath));
             Assert.AreEqual(weaponCollection.Count(), 95);
         }
@@ -97,7 +96,7 @@ namespace Assignment2a
         {
             // TODO: load returns false, expect an empty WeaponCollection
 
-            weaponCollection.Clear();
+            //weaponCollection.Clear();
             Assert.IsFalse(weaponCollection.Load("WrongNameFile"));
             Assert.IsTrue(weaponCollection.Count == 0);
         }
