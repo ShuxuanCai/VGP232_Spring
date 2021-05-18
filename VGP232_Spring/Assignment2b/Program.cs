@@ -7,6 +7,7 @@ using System.IO;
 // NAME: Shuxuan Cai
 // STUDENT NUMBER: 2032525
 
+//Grade: 100/100
 namespace Assignment2b
 {
     class MainClass
