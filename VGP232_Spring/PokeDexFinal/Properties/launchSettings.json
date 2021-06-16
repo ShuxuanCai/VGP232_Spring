@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "PokeDexFinal": {
+      "commandName": "Project",
+      "commandLineArgs": "-i pokemon2.csv -a -o output.csv -c -s Name"
+    }
+  }
+}
