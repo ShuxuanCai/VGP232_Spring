@@ -143,7 +143,6 @@ namespace PokeDexFinal
 
         public override string ToString()
         {
-            //return $"{Nat},{Name},{HP},{Atk},{Def},{SpA},{SpD},{Spe},{Total},{TypeI},{TypeII}";
             return string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10}", Nat, Name, HP, Atk, Def,
             SpA, SpD, Spe, Total, TypeI.ToString(), TypeII == PokemonType.None ? "" : TypeII.ToString());
         }

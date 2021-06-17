@@ -27,19 +27,6 @@ namespace PokeDexFinal
             return pokemons;
         }
 
-        //public List<PokemonInfo> GetAllPokemonsOfType1(PokemonType type)
-        //{
-        //    List<PokemonInfo> pokemons = new List<PokemonInfo>();
-        //    foreach (var i in this)
-        //    {
-        //        if (i.TypeI == type)
-        //        {
-        //            pokemons.Add(i);
-        //        }
-        //    }
-        //    return pokemons;
-        //}
-
         public List<PokemonInfo> GetAllPokemonsOfType2(PokemonType type1, PokemonType type2)
         {
             List<PokemonInfo> pokemons = new List<PokemonInfo>();
@@ -51,22 +38,6 @@ namespace PokeDexFinal
                 }
             }
             return pokemons;
-        }
-
-        public string GetPokemonsName()
-        {
-            //List<PokemonInfo> pokemons = new List<PokemonInfo>();
-            //foreach (var i in this)
-            //{
-            //    if(i.Name == name)
-            //    {
-            //        pokemons.Add(i);
-            //    }
-            //}
-            //return pokemons;
-            PokemonInfo pokemons = new PokemonInfo();
-
-            return pokemons.Nat;
         }
 
         public int GetAllPokemonsOfTotal()

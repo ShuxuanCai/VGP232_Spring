@@ -21,14 +21,12 @@ namespace PokeDexFinalWPF
     {
         public PokemonCollection pokemonCollection { get; set; }
         public PokemonCollection pokemonCollection2 { get; set; }
-        //public PokemonCollection pokemonCollection3 { get; set; }
 
         public LoadAndChooseWindow()
         {
             InitializeComponent();
             pokemonCollection = new PokemonCollection();
             pokemonCollection2 = new PokemonCollection();
-            //pokemonCollection3 = new PokemonCollection();
 
             string[] types = Enum.GetNames(typeof(PokemonType));
             cbTypes1.ItemsSource = types;
@@ -86,18 +84,8 @@ namespace PokeDexFinalWPF
             CheckWindow checkWindow = new CheckWindow(lbPokemons.SelectedItem as PokemonInfo);
             if (checkWindow.ShowDialog() == true)
             {
-                //pokemonCollection[lbPokemons.SelectedIndex] = checkWindow.TempPokemon;
-                //lbPokemons.Items.Refresh();
-                //pokemonCollection3.Add(lbPokemons.SelectedItem as PokemonInfo);
 
             }
-
-            //PokemonInfomation pokemonInfomation = new PokemonInfomation();
-            //if (pokemonInfomation.ShowDialog() == true)
-            //{
-            //    PokemonInfo p = lbPokemons.SelectedItem as PokemonInfo;
-            //    pokemonInfomation.tbNumber.Text = p.Nat.ToString();
-            //}
         }
 
         private void SaveClicked(object sender, RoutedEventArgs e)
@@ -215,18 +203,6 @@ namespace PokeDexFinalWPF
             lbPokemons.Items.Refresh();
         }
 
-        //private void ShowOnlyType(object sender, SelectionChangedEventArgs e)
-        //{
-        //    if (cbTypes.SelectedIndex == -1)
-        //    {
-        //        return;
-        //    }
-
-        //    PokemonType type = (PokemonType)Enum.Parse(typeof(PokemonType), cbTypes.SelectedItem.ToString());
-        //    lbPokemons.ItemsSource = pokemonCollection.GetAllPokemonsOfType(type);
-        //    lbPokemons.Items.Refresh();
-        //}
-
         private void ShowOnlyType1(object sender, SelectionChangedEventArgs e)
         {
             if (cbTypes1.SelectedIndex == -1)
@@ -259,37 +235,12 @@ namespace PokeDexFinalWPF
             lbPokemons.Items.Refresh();
         }
 
-        //private bool CustomFilter(object obj)
-        //{
-        //    if (string.IsNullOrEmpty(tbFilterByName.Text))
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        return (obj.ToString().IndexOf(tbFilterByName.Text, StringComparison.OrdinalIgnoreCase) >= 0);
-        //    }
-        //}
-
-        //private void FilterNameTextChanged(object sender, TextChangedEventArgs e)
-        //{
-        //    CollectionView view = CollectionViewSource.GetDefaultView(lbPokemons.ItemsSource) as CollectionView;
-        //    view.Filter = CustomFilter;
-        //    CollectionViewSource.GetDefaultView(lbPokemons.ItemsSource).Refresh();
-        //}
-
         private void FilterNameTextChanged(object sender, TextChangedEventArgs e)
         {
             string name = (sender as TextBox).Text;
             pokemonCollection.pokemons = pokemonCollection.pokemons.FindAll(x => x.Name.StartsWith(name, StringComparison.OrdinalIgnoreCase));
             lbPokemons.ItemsSource = pokemonCollection.pokemons;
             lbPokemons.Items.Refresh();
-
-            //if(tbFilterByName.)
-            //{
-            //    lbPokemons.ItemsSource = pokemonCollection;
-            //    lbPokemons.Items.Refresh();
-            //}
         }
     }
 }

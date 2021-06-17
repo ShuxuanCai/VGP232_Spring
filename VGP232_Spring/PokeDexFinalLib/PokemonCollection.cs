@@ -29,19 +29,6 @@ namespace PokeDexFinalLib
             return pokemons;
         }
 
-        //public List<PokemonInfo> GetAllPokemonsOfType1(PokemonType type)
-        //{
-        //    List<PokemonInfo> pokemons = new List<PokemonInfo>();
-        //    foreach (var i in this)
-        //    {
-        //        if (i.TypeI == type)
-        //        {
-        //            pokemons.Add(i);
-        //        }
-        //    }
-        //    return pokemons;
-        //}
-
         public List<PokemonInfo> GetAllPokemonsOfType2(PokemonType type1, PokemonType type2)
         {
             List<PokemonInfo> pokemons = new List<PokemonInfo>();
