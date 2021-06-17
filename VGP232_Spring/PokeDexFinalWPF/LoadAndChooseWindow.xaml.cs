@@ -142,7 +142,6 @@ namespace PokeDexFinalWPF
             }
 
             pokemonCollection2.RemoveAt(lbYourPokemons.SelectedIndex);
-            //pokemonCollection2.Remove(lbYourPokemons.SelectedItem as PokemonInfo);
             lbYourPokemons.Items.Refresh();
 
             int total = pokemonCollection2.GetAllPokemonsOfTotal();

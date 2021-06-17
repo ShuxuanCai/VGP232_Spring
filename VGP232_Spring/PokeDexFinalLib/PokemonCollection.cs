@@ -34,7 +34,7 @@ namespace PokeDexFinalLib
             List<PokemonInfo> pokemons = new List<PokemonInfo>();
             foreach (var i in this)
             {
-                if (i.TypeI == type1 && i.TypeII == type2)
+                if ((i.TypeI == type1 && i.TypeII == type2) || (i.TypeI == type2 && i.TypeII == type1))
                 {
                     pokemons.Add(i);
                 }

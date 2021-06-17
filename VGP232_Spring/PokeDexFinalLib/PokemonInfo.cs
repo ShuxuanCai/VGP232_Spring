@@ -99,37 +99,37 @@ namespace PokeDexFinalLib
 
         public static int CompareByHP(PokemonInfo left, PokemonInfo right)
         {
-            return left.HP.CompareTo(right.HP);
+            return right.HP.CompareTo(left.HP);
         }
 
         public static int CompareByAtk(PokemonInfo left, PokemonInfo right)
         {
-            return left.Atk.CompareTo(right.Atk);
+            return right.Atk.CompareTo(left.Atk);
         }
 
         public static int CompareByDef(PokemonInfo left, PokemonInfo right)
         {
-            return left.Def.CompareTo(right.Def);
+            return right.Def.CompareTo(left.Def);
         }
 
         public static int CompareBySpA(PokemonInfo left, PokemonInfo right)
         {
-            return left.SpA.CompareTo(right.SpA);
+            return right.SpA.CompareTo(left.SpA);
         }
 
         public static int CompareBySpD(PokemonInfo left, PokemonInfo right)
         {
-            return left.SpD.CompareTo(right.SpD);
+            return right.SpD.CompareTo(left.SpD);
         }
 
         public static int CompareBySpe(PokemonInfo left, PokemonInfo right)
         {
-            return left.Spe.CompareTo(right.Spe);
+            return right.Spe.CompareTo(left.Spe);
         }
 
         public static int CompareByTotal(PokemonInfo left, PokemonInfo right)
         {
-            return left.Total.CompareTo(right.Total);
+            return right.Total.CompareTo(left.Total);
         }
 
         public static int CompareByTypeI(PokemonInfo left, PokemonInfo right)
