@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using PokeDexFinalLib;
+using TextureAtlasLib;
 
 namespace PokeDexFinalWPF
 {
@@ -21,6 +22,12 @@ namespace PokeDexFinalWPF
     {
         public PokemonCollection pokemonCollection { get; set; }
         public PokemonCollection pokemonCollection2 { get; set; }
+        public Spritesheet mySpritesheet1 { get; set; }
+        public Spritesheet mySpritesheet2 { get; set; }
+        public Spritesheet mySpritesheet3 { get; set; }
+        public Spritesheet mySpritesheet4 { get; set; }
+        public Spritesheet mySpritesheet5 { get; set; }
+        public Spritesheet mySpritesheet6 { get; set; }
 
         public LoadAndChooseWindow()
         {
@@ -59,19 +66,85 @@ namespace PokeDexFinalWPF
                 return;
             }
 
-            if (pokemonCollection2.Count == 6)
+            if (lbImages1.Items.Count == 1 && lbImages2.Items.Count == 1 && lbImages3.Items.Count == 1 && lbImages4.Items.Count == 1 && lbImages5.Items.Count == 1 && lbImages6.Items.Count == 1)
             {
-                MessageBox.Show("It is already 6 Pokemons!");
+                MessageBox.Show("There are already 6 Pokemons!");
                 return;
             }
 
             pokemonCollection2.Add(lbPokemons.SelectedItem as PokemonInfo);
 
-            int total = pokemonCollection2.GetAllPokemonsOfTotal();
-            tbTotal.Text = total.ToString();
+            if (lbImages1.Items.Count == 0)
+            {
+                mySpritesheet1 = new Spritesheet();
+                mySpritesheet1.InputPaths = new List<string>();
+                DataContext = mySpritesheet1;
+                lbImages1.ItemsSource = mySpritesheet1.InputPaths;
+                PokemonInfo p = lbPokemons.SelectedItem as PokemonInfo;
+                string filepath = System.AppDomain.CurrentDomain.BaseDirectory + "Textures/" + p.Nat + ".png";
+                mySpritesheet1.InputPaths.Add(filepath);
+                lbImages1.Items.Refresh();
+            }
 
-            lbYourPokemons.ItemsSource = pokemonCollection2;
-            lbYourPokemons.Items.Refresh();
+            else if (lbImages2.Items.Count == 0)
+            {
+                mySpritesheet2 = new Spritesheet();
+                mySpritesheet2.InputPaths = new List<string>();
+                DataContext = mySpritesheet2;
+                lbImages2.ItemsSource = mySpritesheet2.InputPaths;
+                PokemonInfo p = lbPokemons.SelectedItem as PokemonInfo;
+                string filepath = System.AppDomain.CurrentDomain.BaseDirectory + "Textures/" + p.Nat + ".png";
+                mySpritesheet2.InputPaths.Add(filepath);
+                lbImages2.Items.Refresh();
+            }
+
+            else if (lbImages3.Items.Count == 0)
+            {
+                mySpritesheet3 = new Spritesheet();
+                mySpritesheet3.InputPaths = new List<string>();
+                DataContext = mySpritesheet3;
+                lbImages3.ItemsSource = mySpritesheet3.InputPaths;
+                PokemonInfo p = lbPokemons.SelectedItem as PokemonInfo;
+                string filepath = System.AppDomain.CurrentDomain.BaseDirectory + "Textures/" + p.Nat + ".png";
+                mySpritesheet3.InputPaths.Add(filepath);
+                lbImages3.Items.Refresh();
+            }
+
+            else if (lbImages4.Items.Count == 0)
+            {
+                mySpritesheet4 = new Spritesheet();
+                mySpritesheet4.InputPaths = new List<string>();
+                DataContext = mySpritesheet4;
+                lbImages4.ItemsSource = mySpritesheet4.InputPaths;
+                PokemonInfo p = lbPokemons.SelectedItem as PokemonInfo;
+                string filepath = System.AppDomain.CurrentDomain.BaseDirectory + "Textures/" + p.Nat + ".png";
+                mySpritesheet4.InputPaths.Add(filepath);
+                lbImages4.Items.Refresh();
+            }
+
+            else if (lbImages5.Items.Count == 0)
+            {
+                mySpritesheet5 = new Spritesheet();
+                mySpritesheet5.InputPaths = new List<string>();
+                DataContext = mySpritesheet5;
+                lbImages5.ItemsSource = mySpritesheet5.InputPaths;
+                PokemonInfo p = lbPokemons.SelectedItem as PokemonInfo;
+                string filepath = System.AppDomain.CurrentDomain.BaseDirectory + "Textures/" + p.Nat + ".png";
+                mySpritesheet5.InputPaths.Add(filepath);
+                lbImages5.Items.Refresh();
+            }
+
+            else if (lbImages6.Items.Count == 0)
+            {
+                mySpritesheet6 = new Spritesheet();
+                mySpritesheet6.InputPaths = new List<string>();
+                DataContext = mySpritesheet6;
+                lbImages6.ItemsSource = mySpritesheet6.InputPaths;
+                PokemonInfo p = lbPokemons.SelectedItem as PokemonInfo;
+                string filepath = System.AppDomain.CurrentDomain.BaseDirectory + "Textures/" + p.Nat + ".png";
+                mySpritesheet6.InputPaths.Add(filepath);
+                lbImages6.Items.Refresh();
+            }
         }
 
         private void CheckClicked(object sender, RoutedEventArgs e)
@@ -115,11 +188,38 @@ namespace PokeDexFinalWPF
             cbTypes1.SelectedIndex = 0;
             cbTypes2.SelectedIndex = 0;
             tbFilterByName.Text = String.Empty;
-            tbTotal.Text = String.Empty;
             pokemonCollection.Clear();
             lbPokemons.Items.Refresh();
-            pokemonCollection2.Clear();
-            lbYourPokemons.Items.Refresh();
+            if (lbImages1.Items.Count != 0)
+            {
+                mySpritesheet1.InputPaths.Clear();
+                lbImages1.Items.Refresh();
+            }
+            if (lbImages2.Items.Count != 0)
+            {
+                mySpritesheet2.InputPaths.Clear();
+                lbImages2.Items.Refresh();
+            }
+            if (lbImages3.Items.Count != 0)
+            {
+                mySpritesheet3.InputPaths.Clear();
+                lbImages3.Items.Refresh();
+            }
+            if (lbImages4.Items.Count != 0)
+            {
+                mySpritesheet4.InputPaths.Clear();
+                lbImages4.Items.Refresh();
+            }
+            if (lbImages5.Items.Count != 0)
+            {
+                mySpritesheet5.InputPaths.Clear();
+                lbImages5.Items.Refresh();
+            }
+            if (lbImages6.Items.Count != 0)
+            {
+                mySpritesheet6.InputPaths.Clear();
+                lbImages6.Items.Refresh();
+            }
         }
 
 
@@ -136,16 +236,36 @@ namespace PokeDexFinalWPF
 
         private void RemoveClicked2(object sender, RoutedEventArgs e)
         {
-            if (lbYourPokemons.SelectedIndex == -1)
+            if (lbImages1.SelectedIndex != -1)
             {
-                return;
+                mySpritesheet1.InputPaths.RemoveAt(lbImages1.SelectedIndex);
+                lbImages1.Items.Refresh();
             }
-
-            pokemonCollection2.RemoveAt(lbYourPokemons.SelectedIndex);
-            lbYourPokemons.Items.Refresh();
-
-            int total = pokemonCollection2.GetAllPokemonsOfTotal();
-            tbTotal.Text = total.ToString();
+            else if (lbImages2.SelectedIndex != -1)
+            {
+                mySpritesheet2.InputPaths.RemoveAt(lbImages2.SelectedIndex);
+                lbImages2.Items.Refresh();
+            }
+            else if (lbImages3.SelectedIndex != -1)
+            {
+                mySpritesheet3.InputPaths.RemoveAt(lbImages3.SelectedIndex);
+                lbImages3.Items.Refresh();
+            }
+            else if (lbImages4.SelectedIndex != -1)
+            {
+                mySpritesheet4.InputPaths.RemoveAt(lbImages4.SelectedIndex);
+                lbImages4.Items.Refresh();
+            }
+            else if (lbImages5.SelectedIndex != -1)
+            {
+                mySpritesheet5.InputPaths.RemoveAt(lbImages5.SelectedIndex);
+                lbImages5.Items.Refresh();
+            }
+            else if (lbImages6.SelectedIndex != -1)
+            {
+                mySpritesheet6.InputPaths.RemoveAt(lbImages6.SelectedIndex);
+                lbImages6.Items.Refresh();
+            }
         }
 
         private void SortByNumber(object sender, RoutedEventArgs e)
