@@ -41,6 +41,7 @@
         <Button Content="Remove" Grid.Column="6" Grid.Row="8" Height="20" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center" Click="RemoveClicked"/>
         <Button Content="Show All" Grid.Column="6" Grid.Row="9" Height="20" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center" Click="ShowAllClicked"/>
         <Button Content="Remove" Grid.Column="6" Grid.Row="11" Height="20" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center" Click="RemoveClicked2"/>
+        <Button Content="Save" Grid.Column="6" Grid.Row="12" Height="20" Width="60" HorizontalAlignment="Center" VerticalAlignment="Center" Click="SaveClicked2"/>
         <Label Content="Sort by:" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Height="26" Width="50" Grid.ColumnSpan="2" Margin="5,0,0,0"/>
         <RadioButton Name="number" Content="Number" Grid.Column="1" Grid.Row="2" VerticalAlignment="Center" Height="15" Click="SortByNumber" Grid.ColumnSpan="3" Margin="106,0,72,0"/>
         <RadioButton Name="nat" Content="Name" Grid.Column="3" Grid.Row="2" VerticalAlignment="Center" Height="15" Click="SortByName" Grid.ColumnSpan="2" Margin="0,0,66,0"/>

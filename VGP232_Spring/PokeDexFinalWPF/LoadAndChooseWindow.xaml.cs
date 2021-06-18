@@ -174,6 +174,19 @@ namespace PokeDexFinalWPF
             }
         }
 
+        private void SaveClicked2(object sender, RoutedEventArgs e)
+        {
+            SaveFileDialog saveFile = new SaveFileDialog();
+            saveFile.Filter = "CSV files |*.csv| XML files |*.xml| JSON files |*.json";
+            if (saveFile.ShowDialog() == true)
+            {
+                if (!pokemonCollection2.Save(saveFile.FileName))
+                {
+                    MessageBox.Show("Unable to save file.");
+                }
+            }
+        }
+
         private void ResetClicked(object sender, RoutedEventArgs e)
         {
             number.IsChecked = false;
@@ -239,31 +252,37 @@ namespace PokeDexFinalWPF
             if (lbImages1.SelectedIndex != -1)
             {
                 mySpritesheet1.InputPaths.RemoveAt(lbImages1.SelectedIndex);
+                pokemonCollection2.RemoveAt(lbImages1.SelectedIndex);
                 lbImages1.Items.Refresh();
             }
             else if (lbImages2.SelectedIndex != -1)
             {
                 mySpritesheet2.InputPaths.RemoveAt(lbImages2.SelectedIndex);
+                pokemonCollection2.RemoveAt(lbImages2.SelectedIndex);
                 lbImages2.Items.Refresh();
             }
             else if (lbImages3.SelectedIndex != -1)
             {
                 mySpritesheet3.InputPaths.RemoveAt(lbImages3.SelectedIndex);
+                pokemonCollection2.RemoveAt(lbImages3.SelectedIndex);
                 lbImages3.Items.Refresh();
             }
             else if (lbImages4.SelectedIndex != -1)
             {
                 mySpritesheet4.InputPaths.RemoveAt(lbImages4.SelectedIndex);
+                pokemonCollection2.RemoveAt(lbImages4.SelectedIndex);
                 lbImages4.Items.Refresh();
             }
             else if (lbImages5.SelectedIndex != -1)
             {
                 mySpritesheet5.InputPaths.RemoveAt(lbImages5.SelectedIndex);
+                pokemonCollection2.RemoveAt(lbImages5.SelectedIndex);
                 lbImages5.Items.Refresh();
             }
             else if (lbImages6.SelectedIndex != -1)
             {
                 mySpritesheet6.InputPaths.RemoveAt(lbImages6.SelectedIndex);
+                pokemonCollection2.RemoveAt(lbImages6.SelectedIndex);
                 lbImages6.Items.Refresh();
             }
         }
